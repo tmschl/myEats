@@ -7,6 +7,15 @@
   {{> search}}
 </body>
 
+<template name="form">
+  <input type="text"/>
+  <p> Write review </p>
+  {{id}}
+</template>
+
+
+
+
 <template name="search">
   <div id="wrapper">
     <div id="map">
@@ -19,5 +28,7 @@
     </h2>
     <input type="text" name="address" placeholder="Search Restaurants">
     <input id="clickable" type="button"/>
+    <div id="review">
+    </div>
   </div>
 </template>
