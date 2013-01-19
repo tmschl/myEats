@@ -1,0 +1,17 @@
+#wrapper{
+  margin: auto auto;
+  width: 800px;
+  height: 800px;
+}
+#map{
+  width: 400px;
+  height: 400px;
+  display: inline-block;
+}
+#places{
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  list-style: none;
+  position: absolute;
+}

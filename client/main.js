@@ -1,11 +1,9 @@
-Template.hello.greeting = function () {
-  return "Welcome to yelpApp.";
+Template.search.food = function(){
+  return "Search Restuarant";
 };
 
-Template.hello.events({
-  'click input' : function () {
-    // template data, if any, is available in 'this'
-    if (typeof console !== 'undefined')
-      console.log("You pressed the button");
+Template.search.events({
+  'click #clickable' : function(){
+    console.log($('#search').text());
   }
 });

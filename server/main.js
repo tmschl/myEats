@@ -1,4 +1,3 @@
 Meteor.startup(function () {
-
-
+  
 });
