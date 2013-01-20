@@ -1,17 +1,79 @@
-#wrapper{
+body {
+  font-family: futura;
+}
+#wrapper {
   margin: auto auto;
   width: 800px;
-  height: 800px;
+  height: 450px;
 }
-#map{
+#map {
   width: 400px;
   height: 400px;
   display: inline-block;
+  padding-bottom: 100px;
 }
-#places{
+#places {
   width: 300px;
   height: 300px;
   display: inline-block;
-  list-style: none;
   position: absolute;
+}
+
+ul {
+  list-style: none;
+}
+#login-buttons {
+  font-family: futura;
+  color: blue;
+}
+
+.results {
+  width: 300px;
+  display: inline-block;
+  padding-top: 5%;
+}
+
+.rest {
+  width: 700px;
+  margin-left: 22%;
+  margin-top: 100px;
+}
+
+.restObj{
+  display: inline-block;
+  position: absolute;
+}
+
+.reviewText {
+  margin-left: 20%;
+  margin-top: 1%;
+  width: 101px;
+  display: inline-block;
+}
+
+.search{
+  width: 200px;
+  position: absolute;
+  margin-left: 2%;
+}
+
+.restaurantList {
+  display: inline-block;
+}
+
+.thoughtList {
+display: inline-block;
+margin-left: 30%;
+}
+
+.yourThought {
+  margin-bottom: 10px;
+}
+
+#more {
+  visibility: hidden;
+}
+
+.theThought {
+  margin-left: 70%;
 }

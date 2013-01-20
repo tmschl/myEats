@@ -4,31 +4,48 @@
 </head>
 
 <body>
-  {{> search}}
+  {{loginButtons}}
+  {{#if currentUser}}
+    {{> search}}
+    {{> restaurant}}
+  {{/if}}
 </body>
 
-<template name="form">
-  <input type="text"/>
-  <p> Write review </p>
-  {{id}}
+<template name="search">
+  <div id="wrapper">
+    <input type="button" id="more" value="More"/>
+    <div id="map">
+    </div>
+    <input class="search" type="text" name="address" placeholder="What Restaurant?">
+    {{> result}}
+    <div id="review">
+    </div>
+  </div>
+</template>
+
+<template name="restaurant">
+  <div class="rest">
+    <h2 class="restaurantList">Restaurants</h2>
+    <div class="reviewText">
+      <input class="yourThought" type="text" placeholder="Likes? Dislikes?" />
+    </div>
+    <h2 class="thoughtList">Thoughts</h2>
+    <hr/>
+    <div class="restObj">
+      {{currentRestaurant}}
+    </div>
+    <div class="theThought">
+      {{review}}
+    </div>
+  </div>
 </template>
 
 
 
-
-<template name="search">
-  <div id="wrapper">
-    <div id="map">
-    </div>
-    <div id="places">
-    </div>
-    <input type="button" id="more"/>
-    <h2> 
-      {{food}}
-    </h2>
-    <input type="text" name="address" placeholder="Search Restaurants">
-    <input id="clickable" type="button"/>
-    <div id="review">
-    </div>
-  </div>
+<template name="result">
+  <ul class="results">
+    {{#each place}}
+      <li><a href="#" class="restaurant" data-id="{{id}}">{{name}}</a></li>
+    {{/each}}
+  </ul>
 </template>

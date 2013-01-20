@@ -7,3 +7,7 @@ autopublish
 insecure
 preserve-inputs
 http
+accounts-ui
+accounts-password
+accounts-google
+accounts-twitter
