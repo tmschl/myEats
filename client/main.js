@@ -7,16 +7,17 @@ Template.result.place = function(){
 };
 
 Template.restaurant.currentRestaurant = function() {
-  var x = Session.get('place');
-  var y = Places.findOne({_id: x}) && Places.findOne({ _id: x }).name;
-  return x && y;
+  // var curPlace = Session.get('place');
+  // var place = Places.findOne({_id: curPlace}) && Places.findOne({ _id: curPlace }).name;
+  // console.log(place)
+  return Places.find().fetch();
 };
 
-Template.restaurant.review = function(){
-  var x = Session.get('review');
-  var y = Reviews.findOne({_id: x}) && Reviews.findOne({_id: x}).thought;
-  return x && y;
-};
+// Template.restaurant.review = function(){
+//   var curReview = Session.get('thought');
+//   var review = Places.findOne({_id: curReview}) && Places.findOne({_id: curReview}).thought;
+//   return review;
+// };
 
 Template.search.events({
   'keydown .search' : function(e){
@@ -26,26 +27,21 @@ Template.search.events({
   },
   'click .restaurant' : function(e){
     var placeName = e.srcElement.innerText;
-    var id = Places.insert({name: placeName});
-    console.log(id)
-    Session.set('place', id);
-  },
-
-  'clicked #yourThought': function(e){
-    console.log('working');
-
-      // var thought = $('.reviews').append('<div>' + text + '</div>');
-      // $('#review').append(thought);
+    var place = Places.findOne({name: placeName})
+    if(!place){
+      var id = Places.insert({name: placeName});
+      Session.set('place', id);
+    }
+    Session.set('place', {_id : place._id});
   }
 });
 
 Template.restaurant.events({
   'keydown .yourThought' : function(e){
     if(e.which !== 13) return;
-      var place = Places.find({_id: Session.get('place')}).fetch()[0].name
+      // var place = Places.find({_id: Session.get('place')}).fetch();
       var text = e.target.value;
-      var thought = Reviews.insert({thought: text});
-      Session.set('review', thought);
-
+      
+      Places.update({_id: this.id}, {thought: text});
   }
-})
+});

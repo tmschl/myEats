@@ -56,8 +56,6 @@ function createMarkers(places) {
       title: place.name,
       position: place.geometry.location
     });
-
-
     bounds.extend(place.geometry.location);
   }
   map.fitBounds(bounds);
