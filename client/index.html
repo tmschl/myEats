@@ -4,10 +4,11 @@
 </head>
 
 <body>
-  {{> home}}
   {{#if currentUser}}
     {{> search}}
     {{> restaurant}}
+    {{^}}
+    {{> home}}
   {{/if}}
 </body>
 
@@ -15,13 +16,16 @@
   <div id="homePage">
     <h1 class="title">myEats</h1>
     <div id="introBox">
-      <p class="intro">Remember what you ate and why you would go back.<br/><span class="intro2"> Without the awkwardness.</span></p>
+      <p class="intro">Your City Your Food Your Drinks<br/><div class="intro2">Less Awkward</div></p>
       {{loginButtons}}
     </div>
   </div>
 </template>
 
 <template name="search">
+  <div id="loginButtons2">
+    {{loginButtons}}
+  </div>
   <div id="wrapper">
     <input type="button" id="more" value="More"/>
     <div id="map">
@@ -42,12 +46,14 @@
     <h2 class="thoughtList">Thoughts</h2>
     <hr/>
     {{#each currentRestaurant}}
+    <div class="placeThought">
       <div class="restObj">
         {{this.name}}
       </div>
       <div class="theThought">
         {{this.thought}}
       </div>  
+    </div>
     {{/each}}
   </div>
 </template>

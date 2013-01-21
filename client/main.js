@@ -3,21 +3,12 @@ Template.search.rendered = function(){
 };
 
 Template.result.place = function(){
-  return Session.get('place');
+  return Session.get('allPlaces');
 };
 
 Template.restaurant.currentRestaurant = function() {
-  // var curPlace = Session.get('place');
-  // var place = Places.findOne({_id: curPlace}) && Places.findOne({ _id: curPlace }).name;
-  // console.log(place)
-  return Places.find().fetch();
+  return Places.find().fetch().reverse();
 };
-
-// Template.restaurant.review = function(){
-//   var curReview = Session.get('thought');
-//   var review = Places.findOne({_id: curReview}) && Places.findOne({_id: curReview}).thought;
-//   return review;
-// };
 
 Template.search.events({
   'keydown .search' : function(e){
@@ -26,22 +17,25 @@ Template.search.events({
       search(text);
   },
   'click .restaurant' : function(e){
+    e.preventDefault();
     var placeName = e.srcElement.innerText;
     var place = Places.findOne({name: placeName})
+    var key = e.target.attributes.getNamedItem('data-id').value;
+    Session.set('restaurant', key);
+    
     if(!place){
-      var id = Places.insert({name: placeName});
-      Session.set('place', id);
+      var id = Places.insert({name: placeName, key: key});
+      Session.set('place', key);
     }
-    Session.set('place', {_id : place._id});
   }
 });
 
 Template.restaurant.events({
   'keydown .yourThought' : function(e){
     if(e.which !== 13) return;
-      // var place = Places.find({_id: Session.get('place')}).fetch();
       var text = e.target.value;
+      var key = Session.get('restaurant');
       
-      Places.update({_id: this.id}, {thought: text});
+      Places.update({key: key}, {$set: {thought: text}});
   }
 });

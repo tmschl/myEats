@@ -16,7 +16,7 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('map'), {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: sanFrancisco,
-    zoom: 17
+    zoom: 13
   });
   placesList = document.getElementById('places');
 }
@@ -42,7 +42,7 @@ function callback(results, status, pagination) {
 
 function createMarkers(places) {
   var bounds = new google.maps.LatLngBounds();
-  Session.set('place', places);
+  Session.set('allPlaces', places);
 
   for (var i = 0, place; place = places[i]; i++) {
     var image = new google.maps.MarkerImage(

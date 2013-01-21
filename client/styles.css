@@ -1,6 +1,6 @@
 body {
   font-family: futura;
-  background-color: #0066bb;
+  background-color: #0099bb;
   color: white  ;
 }
 
@@ -15,8 +15,13 @@ body {
   margin-bottom: 2%;
 }
 
-#introBox {
+#loginButtons2 {
+  width: 200px;
+  margin-left: 78%;
+}
 
+a {
+  color: white;
 }
 
 .intro {
@@ -26,7 +31,7 @@ body {
 }
 
 .intro2 {
-
+  text-align: center;
 }
 .login-link-text {
   text-align: center;
@@ -93,12 +98,13 @@ ul {
 }
 
 .thoughtList {
-display: inline-block;
-margin-left: 30%;
+  display: inline-block;
+  margin-left: 30%;
 }
 
 .yourThought {
   margin-bottom: 10px;
+
 }
 
 #more {
@@ -107,4 +113,9 @@ margin-left: 30%;
 
 .theThought {
   margin-left: 70%;
+}
+
+.placeThought {
+  height: 30px;
+  width: 100%;
 }
