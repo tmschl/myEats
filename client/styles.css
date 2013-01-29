@@ -4,8 +4,26 @@ body {
   color: white  ;
 }
 
+#wrapper {
+  
+}
+
+input[type=text], input[type=email], input[type=password] {
+  padding: 4px;
+  border: 1px solid #0099bb;
+  border-bottom: 1px solid white;
+  line-height: 1;
+  background-color: #0099bb;
+  color: white;
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+   color: #fff  ;
+}
+
 #homePage {
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 .title {
@@ -22,6 +40,131 @@ body {
 
 a {
   color: white;
+  text-decoration: none;
+}
+
+#login-dropdown-list {
+  box-shadow: 0px 0px 0px;
+  position: absolute;
+  top: -1px;
+  background-color: #0099bb;
+  left: -70px;
+}
+
+#login-buttons .login-close-text {
+  float: left;
+  position: relative;
+  padding-bottom: 8px;
+  margin-left: 75px;
+}
+
+.accounts-dialog {
+  border: 1px solid #0099bb;
+  z-index: 1000;
+  background: white;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: -8px -12px 0 -12px;
+  width: 198px;
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.3);
+}
+
+#login-buttons .login-button, .accounts-dialog .login-button {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  padding: 4px 8px;
+  font-size: 80%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, default;
+  line-height: 1.5;
+  text-align: center;
+  color: #0099bb;
+  background-color: #8790b4;
+  background-image: -moz-linear-gradient(top, #fff, #fff);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#fff));
+  background-image: -webkit-linear-gradient(top, #fff, #fff);
+  background-image: -o-linear-gradient(top, #fff, #fff);
+  background-image: linear-gradient(to bottom, #fff, #fff);
+  background-repeat: repeat-x;
+  border-radius: 4px;
+  border: 1px solid white;
+/*  box-shadow: 0 1px 3px rgba(0, 0, 0);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0);
+*/}
+
+.aThought {
+  background-color: #0099bb;
+  color: white;
+  border: 1px solid #0099bb;
+  resize: none;
+  outline: none;
+}
+
+.aThought:focus {
+  border-bottom: 1px solid white;
+}
+
+
+#login-buttons .login-button:active, .accounts-dialog .login-button:active {
+  background-image: -moz-linear-gradient(top, #0099bb, #0099bb);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0099bb), to(#0099bb));
+  background-image: -webkit-linear-gradient(top, #0099bb, #0099bb);
+  background-image: -o-linear-gradient(top, #0099bb, #0099bb);
+  background-image: linear-gradient(to bottom, #0099bb, #0099bb);
+  color: white;
+} 
+
+#login-buttons .login-button, .accounts-dialog .login-button {
+  cursor: pointer;
+  font-size: 80%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, default;
+  line-height: 1.5;
+  text-align: center;
+  color: #0099bb;
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+#back-to-login-link {
+  color: white;
+}
+
+#forgot-password-email-label {
+  color: white;
+}
+
+.accounts-dialog .login-button {
+  width: auto;
+  margin-bottom: 15px;
+}
+
+.login-close-text {
+  color: white;
+}
+
+.or-text {
+  color: white;
+}
+
+#login-email-label {
+  color: white;
+}
+
+#login-password-label {
+  color: white;
+}
+
+#forgot-password-link {
+  color: white;
+}
+
+#signup-link {
+  color: white;
 }
 
 .intro {
@@ -37,7 +180,7 @@ a {
   text-align: center;
 }
 #wrapper {
-  margin: auto auto;
+  margin-left: 19%;
   width: 800px;
   height: 450px;
 }
@@ -45,7 +188,7 @@ a {
   width: 400px;
   height: 400px;
   display: inline-block;
-  padding-bottom: 100px;
+  margin-top: 4%;
 }
 #places {
   width: 300px;
@@ -64,15 +207,19 @@ ul {
 }
 
 .results {
-  width: 300px;
-  display: inline-block;
-  padding-top: 5%;
+width: 300px;
+display: inline-block;
+padding-top: 0px;
+margin-left: 0%;
+text-align: left;
+line-height: 20px;
+margin-top: 1%;
 }
 
 .rest {
   width: 700px;
   margin-left: 22%;
-  margin-top: 100px;
+  margin-top: 5%;
 }
 
 .restObj{
@@ -90,7 +237,12 @@ ul {
 .search{
   width: 200px;
   position: absolute;
-  margin-left: 2%;
+  margin-left: -28%;
+  margin-top: -1%;
+}
+
+.allPlaceHolder{
+  display: inline;
 }
 
 .restaurantList {
@@ -104,7 +256,6 @@ ul {
 
 .yourThought {
   margin-bottom: 10px;
-
 }
 
 #more {
@@ -112,10 +263,12 @@ ul {
 }
 
 .theThought {
-  margin-left: 70%;
+  font-size: 14px;
+  margin-left: 80%;
 }
 
 .placeThought {
   height: 30px;
   width: 100%;
+  margin-top: 5%;
 }

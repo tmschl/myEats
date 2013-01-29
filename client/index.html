@@ -30,15 +30,14 @@
     <input type="button" id="more" value="More"/>
     <div id="map">
     </div>
-    <input class="search" type="text" name="address" placeholder="What Restaurant?">
+    <input class="search" type="text" name="address" placeholder="Find Your Restaurant">
     {{> result}}
-    <div id="review">
-    </div>
   </div>
 </template>
 
 <template name="restaurant">
   <div class="rest">
+    <hr/>
     <h2 class="restaurantList">Restaurants</h2>
     <div class="reviewText">
       <input class="yourThought" type="text" placeholder="Likes? Dislikes?" />
@@ -51,7 +50,7 @@
         {{this.name}}
       </div>
       <div class="theThought">
-        {{this.thought}}
+        <textarea class="aThought" rows="3" maxlength="80">{{this.thought}}</textarea>
       </div>  
     </div>
     {{/each}}
@@ -61,9 +60,11 @@
 
 
 <template name="result">
-  <ul class="results">
-    {{#each place}}
-      <li><a href="#" class="restaurant" data-id="{{id}}">{{name}}</a></li>
-    {{/each}}
-  </ul>
+  <div class="allPlaceHolder">
+    <ul class="results">
+      {{#each place}}
+        <li><a href="#" class="restaurant" data-id="{{id}}">{{name}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
 </template>

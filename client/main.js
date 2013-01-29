@@ -1,3 +1,5 @@
+Meteor.subscribe("userPlaces");
+
 Template.search.rendered = function(){
   initialize();
 };
@@ -24,9 +26,14 @@ Template.search.events({
     Session.set('restaurant', key);
     
     if(!place){
-      var id = Places.insert({name: placeName, key: key});
+      var id = Places.insert({name: placeName, key: key, user: Meteor.userId()});
+      console.log(id);
       Session.set('place', key);
     }
+  },
+  'click a' : function(e){
+    e.preventDefault(); 
+    console.log('alsdkj')
   }
 });
 
@@ -37,5 +44,13 @@ Template.restaurant.events({
       var key = Session.get('restaurant');
       
       Places.update({key: key}, {$set: {thought: text}});
+  },
+  'keydown .aThought' : function(e){
+    console.log(e.which)
+    if(e.which !== 13) return;
+    var text = e.target.value;
+    var key = Session.get('restaurant');
+    Places.update({key: key}, {$set: {thought: text}});
+    return false;
   }
 });

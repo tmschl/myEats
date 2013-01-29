@@ -3,11 +3,10 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-autopublish
-insecure
 preserve-inputs
 http
 accounts-ui
 accounts-password
 accounts-google
 accounts-twitter
+insecure
