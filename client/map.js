@@ -25,6 +25,7 @@ function callback(results, status, pagination) {
   if (status != google.maps.places.PlacesServiceStatus.OK) {
     return;
   } else {
+    
     createMarkers(results);
 
     if (pagination.hasNextPage) {
